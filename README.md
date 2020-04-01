@@ -1,4 +1,4 @@
-![Logo](admin/binance.png)
+![Logo](admin/binance.jpg)
 # ioBroker.binance
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.binance.svg)](https://www.npmjs.com/package/iobroker.binance)

@@ -30,7 +30,7 @@ class Binance extends utils.Adapter {
     /**
      * Is called when databases are connected and adapter received configuration.
      */
-    async onReady() {
+    onReady() {
 
         this.log.info('Binance adapter running !!!');
         this.log.info('config option1: ' + this.config.option1);
@@ -38,8 +38,6 @@ class Binance extends utils.Adapter {
 
 
         //setTimeout(this.stop.bind(this), 10000);
-
-        return 1;
     }
 
     /**

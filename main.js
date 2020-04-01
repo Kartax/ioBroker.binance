@@ -34,6 +34,8 @@ class Binance extends utils.Adapter {
     async onReady() {
         // Initialize your adapter here
 
+        this.log.info('Binance adapter running !!!');
+
         // Reset the connection indicator during startup
         this.setState('info.connection', false, true);
 
@@ -75,13 +77,6 @@ class Binance extends utils.Adapter {
 
         // same thing, but the state is deleted after 30s (getState will return null afterwards)
         await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
-
-        // examples for the checkPassword/checkGroup functions
-        let result = await this.checkPasswordAsync('admin', 'iobroker');
-        this.log.info('check user admin pw iobroker: ' + result);
-
-        result = await this.checkGroupAsync('admin', 'admin');
-        this.log.info('check group user admin group admin: ' + result);
     }
 
     /**
@@ -126,23 +121,6 @@ class Binance extends utils.Adapter {
             this.log.info(`state ${id} deleted`);
         }
     }
-
-    // /**
-    //  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
-    //  * Using this method requires "common.message" property to be set to true in io-package.json
-    //  * @param {ioBroker.Message} obj
-    //  */
-    // onMessage(obj) {
-    // 	if (typeof obj === 'object' && obj.message) {
-    // 		if (obj.command === 'send') {
-    // 			// e.g. send email or pushover or whatever
-    // 			this.log.info('send command');
-
-    // 			// Send response in callback if required
-    // 			if (obj.callback) this.sendTo(obj.from, obj.command, 'Message received', obj.callback);
-    // 		}
-    // 	}
-    // }
 
 }
 

@@ -1,0 +1,103 @@
+{
+    "common": {
+        "name": "binance",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Binance",
+        "titleLang": {
+            "en": "Binance",
+            "de": "Binance",
+            "ru": "Binance",
+            "pt": "Binance",
+            "nl": "Binance",
+            "fr": "Binance",
+            "it": "Binance",
+            "es": "Binance",
+            "pl": "Binance",
+            "zh-cn": "币安"
+        },
+        "desc": {
+            "en": "Adapter to communicate with the crypt trading platform binance",
+            "de": "Adapter zur Kommunikation mit der Krypta-Handelsplattform binance",
+            "ru": "Адаптер для связи с торговой платформой склепа",
+            "pt": "Adaptador para se comunicar com o binance da plataforma de negociação de criptografia",
+            "nl": "Adapter om te communiceren met de binance van het crypt-handelsplatform",
+            "fr": "Adaptateur pour communiquer avec la plateforme de trading de cryptage binance",
+            "it": "Adattatore per comunicare con il binance della piattaforma di trading di cripta",
+            "es": "Adaptador para comunicarse con la plataforma de comercio de criptas binance",
+            "pl": "Adapter do komunikacji z binarną platformą handlu kryptami",
+            "zh-cn": "与加密货币交易平台币安通信的适配器"
+        },
+        "authors": [
+            "Kartax <kartax@cuntz.org>"
+        ],
+        "keywords": [
+            "crypto",
+            "trading",
+            "bitcoin",
+            "ethereum",
+            "iota"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "binance.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Kartax/ioBroker.binance/master/admin/binance.png",
+        "readme": "https://github.com/Kartax/ioBroker.binance/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "schedule",
+        "allowInit": true,
+        "type": "misc-data",
+        "compact": true,
+        "connectionType": "cloud",
+        "dataSource": "poll",
+        "materialize": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Device or service connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
+}

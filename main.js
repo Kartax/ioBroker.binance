@@ -43,8 +43,9 @@ class Binance extends utils.Adapter {
         this.log.info('config option1: ' + this.config.option1);
         this.log.info('config option2: ' + this.config.option2);
 
+        this.stop.bind(this);
 
-        this.disable();
+        //setTimeout(this.stop.bind(this), 10000);
     }
 
     /**

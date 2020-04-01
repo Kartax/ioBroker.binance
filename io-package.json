@@ -60,6 +60,7 @@
         "readme": "https://github.com/Kartax/ioBroker.binance/blob/master/README.md",
         "loglevel": "info",
         "mode": "schedule",
+        "schedule": "* * * * *",
         "allowInit": true,
         "type": "misc-data",
         "compact": true,

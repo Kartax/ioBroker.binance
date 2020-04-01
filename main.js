@@ -39,10 +39,7 @@ class Binance extends utils.Adapter {
 
         //setTimeout(this.stop.bind(this), 10000);
 
-        setTimeout(function () {
-            const self = this;
-            self.log.info('timeout done');
-        },5000);
+        setTimeout(function () {},5000);
     }
 
     /**

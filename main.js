@@ -30,9 +30,9 @@ class Binance extends utils.Adapter {
     /**
      * Is called when databases are connected and adapter received configuration.
      */
-    onReady() {
+    async onReady() {
 
-        this.log.info('Binance adapter running !!!');
+        this.log.info('Binance adapter running ##############################');
         this.log.info('config option1: ' + this.config.option1);
         this.log.info('config option2: ' + this.config.option2);
 

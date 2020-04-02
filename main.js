@@ -7,8 +7,11 @@ const request = require('request');
 // const fs = require("fs");
 
 
-const endpoint = 'https://api.binance.com';
-const endpointPrice = endpoint + '/api/v3/ticker/price';
+const ENDPOINT = 'https://api.binance.com';
+const ENDPOINT_PRICE = ENDPOINT + '/api/v3/ticker/price';
+const ENDPOINT_ACCOUNT = ENDPOINT + '/api/v3/account';
+
+const HEADER_APIKEY = 'X-MBX-APIKEY';
 
 
 class Binance extends utils.Adapter {
@@ -40,9 +43,18 @@ class Binance extends utils.Adapter {
      */
     main() {
         this.log.info('main');
+        this.requestPrices();
+        if(this.config.apiKey) this.requestAccount();
+    }
+
+    /**
+     * Request prices
+     */
+    requestPrices() {
+        this.log.info('requestPrices');
         request(
             {
-                url: endpointPrice,
+                url: ENDPOINT_PRICE,
                 json: true,
                 time: true,
                 timeout: this.config.interval - 2000
@@ -67,6 +79,44 @@ class Binance extends utils.Adapter {
                             });
                             this.setState('price.' + entry.symbol, {val: entry.price, ack: true});
                         }
+
+                    } else if (response.statusCode == 418 || response.statusCode == 429) {
+                        // we need to back off
+                        this.log.warn('need to back off');
+
+                    } else {
+                        // unexpected
+                        this.log.error('unexpected response.statusCode');
+                    }
+
+                } else {
+                    this.log.error('request error');
+                    this.log.error(error);
+                }
+            }
+        );
+    }
+
+    /**
+     * Request account
+     */
+    requestAccount() {
+        this.log.info('requestAccount');
+        request(
+            {
+                url: ENDPOINT_ACCOUNT,
+                json: true,
+                time: true,
+                timeout: this.config.interval - 2000,
+                headers: {HEADER_APIKEY: this.config.apiKey}
+            },
+            (error, response, content) => {
+                if (!error) {
+                    this.log.info('response.statusCode: ' + response.statusCode);
+
+                    if (response.statusCode == 200) {
+                        this.log.info('received ' + content.length + ' prices');
+                        this.log.info(JSON.stringify(response));
 
                     } else if (response.statusCode == 418 || response.statusCode == 429) {
                         // we need to back off

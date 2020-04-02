@@ -3,7 +3,6 @@
 const utils         = require('@iobroker/adapter-core');
 const request       = require('request');
 const hmacSHA256    = require('crypto-js/hmac-sha256');
-const base64        = require('crypto-js/enc-base64');
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -104,7 +103,7 @@ class Binance extends utils.Adapter {
     requestAccount() {
         const timestamp = Date.now();
         const queryString = 'timestamp='+timestamp;
-        const signature = base64.stringify(hmacSHA256(this.config.apiKeySecret, queryString));
+        const signature = hmacSHA256(queryString, this.config.apiKeySecret);
 
         this.log.info('queryString: ' + queryString);
         this.log.info('signature: ' + signature);

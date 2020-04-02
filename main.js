@@ -53,18 +53,18 @@ class Binance extends utils.Adapter {
                     if (response.statusCode == 200) {
                         this.log.info('received ' + content.length + ' prices');
                         for(const entry of content){
-                            this.setObjectNotExists(entry.symbol, {
+                            this.setObjectNotExists('price/'+entry.symbol, {
                                 type: 'state',
                                 common: {
                                     name: entry.symbol,
-                                    type: 'object',
+                                    type: 'number',
                                     role: 'value',
                                     read: true,
                                     write: false
                                 },
                                 native: {}
                             });
-                            this.setState(entry.symbol, {val: entry, ack: true});
+                            this.setState('price/'+entry.symbol, {val: entry.price, ack: true});
                         }
                     }
                 } else {

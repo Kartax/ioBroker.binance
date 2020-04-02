@@ -103,7 +103,7 @@ class Binance extends utils.Adapter {
     requestAccount() {
         const timestamp = Date.now();
         const queryString = 'timestamp='+timestamp;
-        const signature = hmacSHA256.encrypt(this.config.apiKeySecret, queryString)
+        const signature = hmacSHA256(this.config.apiKeySecret, queryString)
 
         this.log.info('requestAccount');
         request(

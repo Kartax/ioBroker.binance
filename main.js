@@ -103,7 +103,7 @@ class Binance extends utils.Adapter {
     requestAccount() {
         const timestamp = Date.now();
         const queryString = 'timestamp='+timestamp;
-        const signature = hmacSHA256(this.config.apiKeySecret.encode('utf-8'), queryString.encode('utf-8'))
+        const signature = hmacSHA256(this.config.apiKeySecret, queryString)
 
         this.log.info('queryString: ' + queryString);
         this.log.info('signature: ' + signature);
@@ -111,7 +111,7 @@ class Binance extends utils.Adapter {
         this.log.info('requestAccount');
         request(
             {
-                url: ENDPOINT_ACCOUNT +'?' + queryString + '&signature=' + signature,
+                url: ENDPOINT_ACCOUNT +'?' + queryString + '&signature=' + this.config.apiKeySecret,
                 json: true,
                 time: true,
                 timeout: this.config.interval - 2000,

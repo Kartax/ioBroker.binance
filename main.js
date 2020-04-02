@@ -131,7 +131,7 @@ class Binance extends utils.Adapter {
                             },
                             native: {}
                         });
-                        this.setState('account', {val: content, ack: true});
+                        this.setState('account', {val: {'name':'achmet'}, ack: true});
 
                     } else if (response.statusCode == 418 || response.statusCode == 429) {
                         // we need to back off

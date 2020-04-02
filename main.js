@@ -51,7 +51,7 @@ class Binance extends utils.Adapter {
                 if (!error) {
                     this.log.info('response.statusCode: ' + response.statusCode);
                     if (response.statusCode == 200) {
-                        this.log.info('received ' + content.length() + ' prices');
+                        this.log.info('received ' + content.length + ' prices');
                         for(const entry of content){
                             this.setObject(entry.symbol, entry);
                         }

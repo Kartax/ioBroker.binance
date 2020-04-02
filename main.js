@@ -111,7 +111,7 @@ class Binance extends utils.Adapter {
         this.log.info('requestAccount');
         request(
             {
-                url: ENDPOINT_ACCOUNT +'?' + queryString + '&signature=' + this.config.apiKeySecret,
+                url: ENDPOINT_ACCOUNT +'?' + queryString + '&signature=' + signature,
                 json: true,
                 time: true,
                 timeout: this.config.interval - 2000,

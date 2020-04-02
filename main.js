@@ -108,6 +108,8 @@ class Binance extends utils.Adapter {
         this.log.info('queryString: ' + queryString);
         this.log.info('signature: ' + signature);
 
+        this.log.info(ENDPOINT_ACCOUNT +'?' + queryString + '&signature=' + signature);
+
         this.log.info('requestAccount');
         request(
             {

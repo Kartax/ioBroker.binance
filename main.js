@@ -120,18 +120,22 @@ class Binance extends utils.Adapter {
 
                     if (response.statusCode == 200) {
                         this.log.info('got account response');
-                        this.setObjectNotExists('account', {
-                            type: 'state',
-                            common: {
-                                name: 'account',
-                                type: 'object',
-                                desc: 'The binance account object',
-                                read: true,
-                                write: false
-                            },
-                            native: {}
-                        });
-                        this.setState('account', {val: {'name': 'achmet'}});
+
+                        // balances
+                        for(const balance of content.balances){
+                            this.setObjectNotExists('account.balance.'+balance.asset, {
+                                type: 'state',
+                                common: {
+                                    name: balance.asset,
+                                    type: 'number',
+                                    role: 'value',
+                                    read: true,
+                                    write: false
+                                },
+                                native: {}
+                            });
+                            this.setState('account.balance.'+balance.asset, balance.free});
+                        }
 
                     } else if (response.statusCode == 418 || response.statusCode == 429) {
                         // we need to back off

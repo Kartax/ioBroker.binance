@@ -1,15 +1,15 @@
 'use strict';
 
-/*
- * Created with @iobroker/create-adapter v1.23.0
- */
-
-// The adapter-core module gives you access to the core ioBroker functions
-// you need to create an adapter
 const utils = require('@iobroker/adapter-core');
+const request = require('request');
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
+
+
+const endpoint = 'https://api.binance.com';
+const endpointPrice = endpoint + '/api/v3/ticker/price';
+
 
 class Binance extends utils.Adapter {
 
@@ -22,8 +22,6 @@ class Binance extends utils.Adapter {
             name: 'binance',
         });
         this.on('ready', this.onReady.bind(this));
-        //this.on('objectChange', this.onObjectChange.bind(this));
-        //this.on('stateChange', this.onStateChange.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
 
@@ -40,9 +38,30 @@ class Binance extends utils.Adapter {
     /**
      * The main update method
      */
-    main(){
+    main() {
         this.log.info('main');
-
+        request(
+            {
+                url: endpointPrice,
+                json: true,
+                time: true,
+                timeout: this.config.interval - 2000
+            },
+            (error, response, content) => {
+                if (!error) {
+                    this.log.info('response.statusCode: ' + response.statusCode);
+                    if (response.statusCode == 200) {
+                        this.log.info('received ' + content.length() + ' prices');
+                        for(const entry of content){
+                            this.setObject(entry.symbol, entry);
+                        }
+                    }
+                } else {
+                    this.log.error('request error');
+                    this.log.error(error);
+                }
+            }
+        );
     }
 
     /**
@@ -51,40 +70,10 @@ class Binance extends utils.Adapter {
      */
     onUnload(callback) {
         try {
-            this.log.info('cleaned everything up...');
+            this.log.info('unload');
             callback();
         } catch (e) {
             callback();
-        }
-    }
-
-    /**
-     * Is called if a subscribed object changes
-     * @param {string} id
-     * @param {ioBroker.Object | null | undefined} obj
-     */
-    onObjectChange(id, obj) {
-        if (obj) {
-            // The object was changed
-            this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-        } else {
-            // The object was deleted
-            this.log.info(`object ${id} deleted`);
-        }
-    }
-
-    /**
-     * Is called if a subscribed state changes
-     * @param {string} id
-     * @param {ioBroker.State | null | undefined} state
-     */
-    onStateChange(id, state) {
-        if (state) {
-            // The state was changed
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-        } else {
-            // The state was deleted
-            this.log.info(`state ${id} deleted`);
         }
     }
 

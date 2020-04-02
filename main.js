@@ -119,8 +119,19 @@ class Binance extends utils.Adapter {
                     this.log.info('response.statusCode: ' + response.statusCode);
 
                     if (response.statusCode == 200) {
-                        this.log.info(JSON.stringify(content));
-                        this.log.info(JSON.stringify(response.body));
+                        this.log.info('got account response');
+                        this.setObjectNotExists('account', {
+                            type: 'state',
+                            common: {
+                                name: 'account',
+                                type: 'object',
+                                role: 'value',
+                                read: true,
+                                write: false
+                            },
+                            native: {}
+                        });
+                        this.setState('account', {val: content, ack: true});
 
                     } else if (response.statusCode == 418 || response.statusCode == 429) {
                         // we need to back off

@@ -9,5 +9,9 @@ systemDictionary = {
     'apiKey': {
         'en': 'API Key',
         'de': 'API Schlüssel',
+    },
+    'apiKeySecret': {
+        'en': 'API Key secret',
+        'de': 'API Schlüssel Geheimnis',
     }
 };

@@ -54,7 +54,8 @@
     },
     "native": {
         "interval": 10000,
-        "apiKey": ""
+        "apiKey": "",
+        "apiKeySecret": ""
     },
     "objects": [],
     "instanceObjects": []

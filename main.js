@@ -1,7 +1,8 @@
 'use strict';
 
-const utils = require('@iobroker/adapter-core');
-const request = require('request');
+const utils         = require('@iobroker/adapter-core');
+const request       = require('request');
+const hmacSHA256    = require('crypto-js/hmac-sha256');
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -10,8 +11,6 @@ const request = require('request');
 const ENDPOINT = 'https://api.binance.com';
 const ENDPOINT_PRICE = ENDPOINT + '/api/v3/ticker/price';
 const ENDPOINT_ACCOUNT = ENDPOINT + '/api/v3/account';
-
-const HEADER_APIKEY = 'X-MBX-APIKEY';
 
 
 class Binance extends utils.Adapter {
@@ -35,6 +34,7 @@ class Binance extends utils.Adapter {
         this.log.info('ready');
         this.log.info(JSON.stringify(this.config));
 
+        // trigger main method in configured interval
         setInterval(this.main.bind(this), this.config.interval);
     }
 
@@ -43,7 +43,7 @@ class Binance extends utils.Adapter {
      */
     main() {
         this.log.info('main');
-        this.requestPrices();
+        //this.requestPrices();
         if(this.config.apiKey) this.requestAccount();
     }
 
@@ -101,14 +101,18 @@ class Binance extends utils.Adapter {
      * Request account
      */
     requestAccount() {
+        const timestamp = Date.now();
+        const queryString = 'timestamp='+timestamp;
+        const signature = hmacSHA256.encrypt(this.config.apiKeySecret, queryString)
+
         this.log.info('requestAccount');
         request(
             {
-                url: ENDPOINT_ACCOUNT,
+                url: ENDPOINT_ACCOUNT +'?' + queryString + '&signature=' + signature,
                 json: true,
                 time: true,
                 timeout: this.config.interval - 2000,
-                headers: {HEADER_APIKEY: this.config.apiKey}
+                headers: {'X-MBX-APIKEY' : this.config.apiKey}
             },
             (error, response, content) => {
                 if (!error) {
@@ -125,6 +129,7 @@ class Binance extends utils.Adapter {
                     } else {
                         // unexpected
                         this.log.error('unexpected response.statusCode');
+                        this.log.error(JSON.stringify(response));
                     }
 
                 } else {

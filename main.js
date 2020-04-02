@@ -1,17 +1,12 @@
 'use strict';
 
-const utils         = require('@iobroker/adapter-core');
-const request       = require('request');
-const hmacSHA256    = require('crypto-js/hmac-sha256');
-
-// Load your modules here, e.g.:
-// const fs = require("fs");
-
+const utils = require('@iobroker/adapter-core');
+const request = require('request');
+const hmacSHA256 = require('crypto-js/hmac-sha256');
 
 const ENDPOINT = 'https://api.binance.com';
 const ENDPOINT_PRICE = ENDPOINT + '/api/v3/ticker/price';
 const ENDPOINT_ACCOUNT = ENDPOINT + '/api/v3/account';
-
 
 class Binance extends utils.Adapter {
 
@@ -44,7 +39,7 @@ class Binance extends utils.Adapter {
     main() {
         this.log.info('main');
         //this.requestPrices();
-        if(this.config.apiKey) this.requestAccount();
+        if (this.config.apiKey) this.requestAccount();
     }
 
     /**
@@ -102,30 +97,30 @@ class Binance extends utils.Adapter {
      */
     requestAccount() {
         const timestamp = Date.now();
-        const queryString = 'timestamp='+timestamp;
+        const queryString = 'timestamp=' + timestamp;
         const signature = hmacSHA256(queryString, this.config.apiKeySecret);
 
         this.log.info('queryString: ' + queryString);
         this.log.info('signature: ' + signature);
 
-        this.log.info(ENDPOINT_ACCOUNT +'?' + queryString + '&signature=' + signature);
+        this.log.info(ENDPOINT_ACCOUNT + '?' + queryString + '&signature=' + signature);
 
         this.log.info('requestAccount');
         request(
             {
-                url: ENDPOINT_ACCOUNT +'?' + queryString + '&signature=' + signature,
+                url: ENDPOINT_ACCOUNT + '?' + queryString + '&signature=' + signature,
                 json: true,
                 time: true,
                 timeout: this.config.interval - 2000,
-                headers: {'X-MBX-APIKEY' : this.config.apiKey}
+                headers: {'X-MBX-APIKEY': this.config.apiKey}
             },
             (error, response, content) => {
                 if (!error) {
                     this.log.info('response.statusCode: ' + response.statusCode);
 
                     if (response.statusCode == 200) {
-                        this.log.info('received ' + content.length + ' prices');
-                        this.log.info(JSON.stringify(response));
+                        this.log.info(JSON.stringify(content));
+                        this.log.info(JSON.stringify(response.body));
 
                     } else if (response.statusCode == 418 || response.statusCode == 429) {
                         // we need to back off

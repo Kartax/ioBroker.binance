@@ -125,13 +125,13 @@ class Binance extends utils.Adapter {
                             common: {
                                 name: 'account',
                                 type: 'object',
-                                role: 'json',
+                                desc: 'The binance account object',
                                 read: true,
                                 write: false
                             },
                             native: {}
                         });
-                        this.setState('account', {val: {'name':'achmet'}, ack: true});
+                        this.setState('account', {val: {'name': 'achmet'}});
 
                     } else if (response.statusCode == 418 || response.statusCode == 429) {
                         // we need to back off

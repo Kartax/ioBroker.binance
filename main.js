@@ -125,7 +125,7 @@ class Binance extends utils.Adapter {
                             common: {
                                 name: 'account',
                                 type: 'object',
-                                role: 'value',
+                                role: 'json',
                                 read: true,
                                 write: false
                             },

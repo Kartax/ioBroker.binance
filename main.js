@@ -32,13 +32,14 @@ class Binance extends utils.Adapter {
      */
     async onReady() {
 
-        this.log.info('Binance adapter running ##############################');
+        setInterval(this.main, 10000);
+
+    }
+
+    main(){
+        this.log.info('Binance adapter main() ##############################');
         this.log.info('config option1: ' + this.config.option1);
         this.log.info('config option2: ' + this.config.option2);
-
-
-        //setTimeout(this.stop.bind(this), 10000);
-        this.stop.apply();
     }
 
     /**

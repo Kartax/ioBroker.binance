@@ -105,6 +105,9 @@ class Binance extends utils.Adapter {
         const queryString = 'timestamp='+timestamp;
         const signature = hmacSHA256(this.config.apiKeySecret, queryString)
 
+        this.log.info('queryString: ' + queryString);
+        this.log.info('signature: ' + signature);
+
         this.log.info('requestAccount');
         request(
             {

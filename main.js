@@ -34,7 +34,7 @@ class Binance extends utils.Adapter {
 
         setInterval(() => {
             this.log.info('Binance adapter main() ##############################');
-            this.log.info('config interval: ' + this.config.interval);
+            this.log.info('config interval: ' + this.config.interval + 'ms');
         }, this.config.interval);
 
     }

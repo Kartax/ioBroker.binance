@@ -50,10 +50,11 @@ class Binance extends utils.Adapter {
             (error, response, content) => {
                 if (!error) {
                     this.log.info('response.statusCode: ' + response.statusCode);
+
                     if (response.statusCode == 200) {
                         this.log.info('received ' + content.length + ' prices');
-                        for(const entry of content){
-                            this.setObjectNotExists('price/'+entry.symbol, {
+                        for (const entry of content) {
+                            this.setObjectNotExists('price.' + entry.symbol, {
                                 type: 'state',
                                 common: {
                                     name: entry.symbol,
@@ -64,9 +65,18 @@ class Binance extends utils.Adapter {
                                 },
                                 native: {}
                             });
-                            this.setState('price/'+entry.symbol, {val: entry.price, ack: true});
+                            this.setState('price.' + entry.symbol, {val: entry.price, ack: true});
                         }
+
+                    } else if (response.statusCode == 418 || response.statusCode == 429) {
+                        // we need to back off
+                        this.log.warn('need to back off');
+
+                    } else {
+                        // unexpected
+                        this.log.error('unexpected response.statusCode');
                     }
+
                 } else {
                     this.log.error('request error');
                     this.log.error(error);

@@ -27,7 +27,6 @@ class Binance extends utils.Adapter {
      */
     async onReady() {
         this.log.info('ready');
-        this.log.info(JSON.stringify(this.config));
 
         // trigger main method in configured interval
         setInterval(this.main.bind(this), this.config.interval);
@@ -100,9 +99,6 @@ class Binance extends utils.Adapter {
         const queryString = 'timestamp=' + timestamp;
         const signature = hmacSHA256(queryString, this.config.apiKeySecret);
 
-        this.log.info('queryString: ' + queryString);
-        this.log.info('signature: ' + signature);
-
         this.log.info(ENDPOINT_ACCOUNT + '?' + queryString + '&signature=' + signature);
 
         this.log.info('requestAccount');
@@ -120,9 +116,11 @@ class Binance extends utils.Adapter {
 
                     if (response.statusCode == 200) {
                         this.log.info('got account response');
+                        this.log.info('content: '+JSON.stringify(content));
 
                         // balances
                         for(const balance of content.balances){
+                            this.log.info('BALANCE: '+JSON.stringify(balance));
                             this.setObjectNotExists('account.balance.'+balance.asset, {
                                 type: 'state',
                                 common: {

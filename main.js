@@ -31,11 +31,17 @@ class Binance extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
+        this.log.info('ready');
+        this.log.info(JSON.stringify(this.config));
 
-        setInterval(() => {
-            this.log.info('Binance adapter main() ##############################');
-            this.log.info('config interval: ' + this.config.interval + 'ms');
-        }, this.config.interval);
+        setInterval(this.main.bind(this), this.config.interval);
+    }
+
+    /**
+     * The main update method
+     */
+    main(){
+        this.log.info('main');
 
     }
 

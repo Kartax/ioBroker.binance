@@ -49,8 +49,7 @@
         ]
     },
     "native": {
-        "option1": true,
-        "option2": "42"
+        "interval": [1000]
     },
     "objects": [],
     "instanceObjects": []

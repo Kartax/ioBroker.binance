@@ -72,7 +72,7 @@ class Binance extends utils.Adapter {
                                 },
                                 native: {}
                             });
-                            this.setState('price.' + entry.symbol, {val: entry.price, ack: true});
+                            this.setState('price.' + entry.symbol, entry.price);
                         }
 
                     } else if (response.statusCode == 418 || response.statusCode == 429) {
@@ -134,7 +134,7 @@ class Binance extends utils.Adapter {
                                 },
                                 native: {}
                             });
-                            this.setState('account.balance.'+balance.asset, balance.free});
+                            this.setState('account.balance.'+balance.asset, balance.free);
                         }
 
                     } else if (response.statusCode == 418 || response.statusCode == 429) {

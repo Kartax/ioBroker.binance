@@ -1,8 +1,12 @@
 {
     "common": {
         "name": "binance",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "news": {
+            "1.0.1": {
+                "en": "Documentation adjustments",
+                "de": "Anpassung Dokumentation"
+            },
             "1.0.0": {
                 "en": "Initial release",
                 "de": "Erstveröffentlichung"
@@ -21,6 +25,7 @@
             "Kartax <kartax@cuntz.org>"
         ],
         "keywords": [
+            "binance",
             "crypto",
             "trading",
             "bitcoin",

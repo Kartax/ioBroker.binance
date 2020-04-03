@@ -6,6 +6,8 @@ The adapter pulls prices of currencies in the configured update interval.
 If you configure an API Key and the corresponding secret, it will pull account balances as well.
 You may create an API Key on binance.com - i suggest to restrict it to "read-only".
 
+![screenshot-1](screenshot-1.png) ![screenshot-2](screenshot-2.png)
+
 # License
 MIT License
 

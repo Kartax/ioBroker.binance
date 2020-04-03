@@ -1,3 +1,13 @@
+[![NPM version](http://img.shields.io/npm/v/iobroker.binance.svg)](https://www.npmjs.com/package/iobroker.binance)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.binance.svg)](https://www.npmjs.com/package/iobroker.binance)
+![Number of Installations (latest)](http://iobroker.live/badges/binance-installed.svg)
+![Number of Installations (stable)](http://iobroker.live/badges/binance-stable.svg)
+[![Dependency Status](https://img.shields.io/david/Kartax/iobroker.binance.svg)](https://david-dm.org/Kartax/iobroker.binance)
+[![Known Vulnerabilities](https://snyk.io/test/github/Kartax/ioBroker.binance/badge.svg)](https://snyk.io/test/github/Kartax/ioBroker.binance)
+
+[![NPM](https://nodei.co/npm/iobroker.binance.png?downloads=true)](https://nodei.co/npm/iobroker.binance/)
+
+
 # ioBroker.binance
 
 Adapter to communicate with the crypt trading platform binance

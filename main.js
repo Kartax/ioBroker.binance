@@ -36,7 +36,6 @@ class Binance extends utils.Adapter {
      * The main update method
      */
     main() {
-        this.log.info('main');
         this.requestPrices();
         if (this.config.apiKey && this.config.apiKeySecret) this.requestAccount();
     }
@@ -46,12 +45,13 @@ class Binance extends utils.Adapter {
      */
     requestPrices() {
         this.log.info('requestPrices');
+
         request(
             {
                 url: ENDPOINT_PRICE,
                 json: true,
                 time: true,
-                timeout: this.config.interval - 2000
+                timeout: 5000
             },
             (error, response, content) => {
                 if (!error) {
@@ -77,6 +77,7 @@ class Binance extends utils.Adapter {
                     } else if (response.statusCode == 418 || response.statusCode == 429) {
                         // we need to back off
                         this.log.warn('need to back off');
+                        // TODO
 
                     } else {
                         // unexpected
@@ -95,13 +96,14 @@ class Binance extends utils.Adapter {
      * Request account
      */
     requestAccount() {
+        this.log.info('requestAccount');
+
         const timestamp = Date.now();
         const queryString = 'timestamp=' + timestamp;
         const signature = hmacSHA256(queryString, this.config.apiKeySecret);
 
         this.log.info(ENDPOINT_ACCOUNT + '?' + queryString + '&signature=' + signature);
 
-        this.log.info('requestAccount');
         request(
             {
                 url: ENDPOINT_ACCOUNT + '?' + queryString + '&signature=' + signature,

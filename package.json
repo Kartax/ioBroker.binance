@@ -1,6 +1,6 @@
 {
   "name": "iobroker.binance",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Adapter to communicate with the crypt trading platform binance",
   "author": {
     "name": "Kartax",

@@ -1,14 +1,10 @@
 {
     "common": {
         "name": "binance",
-        "version": "0.0.2",
+        "version": "1.0.0",
         "news": {
-            "0.0.2": {
-                "en": "Prices and account data",
-                "de": "Preise und Account Daten"
-            },
-            "0.0.1": {
-                "en": "initial release",
+            "1.0.0": {
+                "en": "Initial release",
                 "de": "Erstveröffentlichung"
             }
         },
@@ -53,7 +49,7 @@
         ]
     },
     "native": {
-        "interval": 10000,
+        "interval": 60000,
         "apiKey": "",
         "apiKeySecret": ""
     },

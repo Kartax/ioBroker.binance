@@ -138,6 +138,7 @@ class Binance extends utils.Adapter {
                     } else if (response.statusCode == 418 || response.statusCode == 429) {
                         // we need to back off
                         this.log.warn('need to back off');
+                        // TODO
 
                     } else {
                         // unexpected

@@ -8,3 +8,9 @@
 }
 
 /* Add your styles here */
+
+.admin-inline-logo {
+    height: 3rem;
+    width: auto;
+    padding-right: 0.5rem;
+}

@@ -20,6 +20,7 @@ class Binance extends utils.Adapter {
         });
         this.on('ready', this.onReady.bind(this));
         this.on('unload', this.onUnload.bind(this));
+        this.intervalHandle = setInterval(() => {},1000);
     }
 
     /**
@@ -29,7 +30,7 @@ class Binance extends utils.Adapter {
         this.log.info('ready');
 
         // trigger main method in configured interval
-        setInterval(this.main.bind(this), this.config.interval);
+        this.intervalHandle = setInterval(this.main.bind(this), this.config.interval);
     }
 
     /**
@@ -163,6 +164,7 @@ class Binance extends utils.Adapter {
     onUnload(callback) {
         try {
             this.log.info('unload');
+            clearInterval(this.intervalHandle);
             callback();
         } catch (e) {
             callback();

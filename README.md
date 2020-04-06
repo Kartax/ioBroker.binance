@@ -9,7 +9,7 @@
 
 
 # ioBroker.binance
-
+## Introduction
 Adapter to communicate with the crypt trading platform binance
 
 The adapter pulls prices of currencies in the configured update interval.
@@ -18,7 +18,16 @@ You may create an API Key on binance.com - i suggest to restrict it to "read-onl
 
 ![screenshot-1](screenshot-1.png) ![screenshot-2](screenshot-2.png)
 
-# License
+## Changelog
+### 1.0.1
+- some loggin cleanup
+- adjusted documentation
+### 1.0.0
+- first fully functional release (polling of prices and account balances)
+- introduces cropty-js to accomplish binance quthentication requirements
+- moved from type schedule to daemon with setTimeout
+
+## License
 MIT License
 
 Copyright (c) 2020 Kartax <kartax@cuntz.org>

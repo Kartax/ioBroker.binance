@@ -19,6 +19,8 @@ You may create an API Key on binance.com - i suggest to restrict it to "read-onl
 ![screenshot-1](screenshot-1.png) ![screenshot-2](screenshot-2.png)
 
 ## Changelog
+### 1.0.3
+- enrypted storage of apiKeySecret
 ### 1.0.2
 - added translations
 - additonal timeout options

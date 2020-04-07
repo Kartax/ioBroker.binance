@@ -1,15 +1,19 @@
 {
     "common": {
         "name": "binance",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "news": {
+            "1.0.3": {
+                "en": "Encrypted storage of apiKeySecret"
+            },
+            "1.0.2": {
+                "en": "added translations, additonal timeout options, Travis CI"
+            },
             "1.0.1": {
-                "en": "Documentation adjustments",
-                "de": "Anpassung Dokumentation"
+                "en": "Documentation adjustments"
             },
             "1.0.0": {
-                "en": "Initial release",
-                "de": "Erstveröffentlichung"
+                "en": "Initial release"
             }
         },
         "title": "Binance",

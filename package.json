@@ -1,10 +1,10 @@
 {
   "name": "iobroker.binance",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Adapter to communicate with the crypt trading platform binance",
   "author": {
     "name": "Kartax",
-    "email": "kartax@cuntz.org"
+    "email": "philipp@cuntz.org"
   },
   "homepage": "https://github.com/Kartax/ioBroker.binance",
   "license": "MIT",

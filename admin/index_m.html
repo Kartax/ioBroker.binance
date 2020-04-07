@@ -48,7 +48,7 @@
             $('.value').each(function () {
                 var $key = $(this);
                 var id = $key.attr('id');
-                if (id === 'apiKey') {
+                if (id === 'apiKeySecret') {
                     settings[id] = decrypt(secret, settings[id]);
                 }
                 if ($key.attr('type') === 'checkbox') {
@@ -95,7 +95,7 @@
                 } else {
                     let id = $this.attr('id');
                     let value = $this.val();
-                    if (id === 'apiKey') {
+                    if (id === 'apiKeySecret') {
                         value = encrypt(secret, value);
                     }
                     obj[id] = value;

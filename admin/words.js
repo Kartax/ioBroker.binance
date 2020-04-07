@@ -4,10 +4,10 @@
 systemDictionary = {
     'adapter-title': {
         'en': 'Binance API Adapter',
-        'de': 'BinanceDE API adapter',
-        "ru": "BinanceRU API адаптер",
+        'de': 'Binance API adapter',
+        "ru": "Binance API адаптер",
         "pt": "Adaptador API Binance",
-        "nl": "Binance API-adapter",
+        "nl": "Binance API adapter",
         "fr": "Adaptateur d'API Binance",
         "it": "Adattatore API Binance",
         "es": "Adaptador API Binance",
@@ -45,7 +45,7 @@ systemDictionary = {
     'apiKey': {
         "API Key": {
             "en": "API Key",
-            "de": "API-Schlüssel",
+            "de": "API Schlüssel",
             "ru": "Ключ API",
             "pt": "Chave API",
             "nl": "API sleutel",
@@ -59,7 +59,7 @@ systemDictionary = {
     'apiKeySecret': {
         "API Key secret": {
             "en": "API Key secret",
-            "de": "API-Schlüssel Geheimnis",
+            "de": "API Schlüssel Geheimnis",
             "ru": "Секретный ключ API",
             "pt": "Segredo da chave da API",
             "nl": "API-sleutelgeheim",

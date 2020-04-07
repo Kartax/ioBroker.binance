@@ -18,6 +18,30 @@
     <script type="text/javascript" src="words.js"></script>
 
     <script type="text/javascript">
+        // secret for encrypted storage
+        var secret;
+
+        function encrypt(key, value) {
+            console.log('### encrypt');
+            console.log('### '+value);
+            var result = '';
+            for(var i = 0; i < value.length; ++i) {
+                result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
+            }
+            console.log('### '+value);
+            return result;
+        }
+        function decrypt(key, value) {
+            console.log('### encrypt');
+            console.log('### '+value);
+            var result = '';
+            for(var i = 0; i < value.length; ++i) {
+                result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
+            }
+            console.log('### '+value);
+            return result;
+        }
+
         // This will be called by the admin adapter when the settings page loads
         function load(settings, onChange) {
             // example: select elements with id=key and class=value and insert value
@@ -25,6 +49,9 @@
             $('.value').each(function () {
                 var $key = $(this);
                 var id = $key.attr('id');
+                if (id === 'apiKey') {
+                    settings[id] = decrypt(secret, settings[id]);
+                }
                 if ($key.attr('type') === 'checkbox') {
                     // do not call onChange direct, because onChange could expect some arguments
                     $key.prop('checked', settings[id])
@@ -38,6 +65,12 @@
                     ;
                 }
             });
+
+            // get secret
+            socket.emit('getObject', 'system.config', function (err, obj) {
+            secret = (obj.native ? obj.native.secret : '') || 'Zgfr56gFe87jJOM';
+            loadHelper(settings, onChange);
+
             onChange(false);
             // reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
             if (M) M.updateTextFields();
@@ -52,7 +85,12 @@
                 if ($this.attr('type') === 'checkbox') {
                     obj[$this.attr('id')] = $this.prop('checked');
                 } else {
-                    obj[$this.attr('id')] = $this.val();
+                    var id = $this.attr('id');
+                    let value = $this.val();
+                    if (id === 'apiKey') {
+                        value = encrypt(secret, value);
+                    }
+                    obj[id] = value;
                 }
             });
             callback(obj);

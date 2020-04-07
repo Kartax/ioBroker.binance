@@ -28,7 +28,7 @@
             for(var i = 0; i < value.length; ++i) {
                 result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
             }
-            console.log('### '+value);
+            console.log('### '+result);
             return result;
         }
         function decrypt(key, value) {
@@ -38,7 +38,7 @@
             for(var i = 0; i < value.length; ++i) {
                 result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
             }
-            console.log('### '+value);
+            console.log('### '+result);
             return result;
         }
 
@@ -75,7 +75,7 @@
             // example: select elements with id=key and class=value and insert value
             if (!settings) return;
             socket.emit('getObject', 'system.config', function (err, obj) {
-                secret = (obj.native ? obj.native.secret : '') || 'Zgfr56gFe87jJOM';
+                secret = (obj.native ? obj.native.secret : '') || 'Raxu82gIe87jJOZ';
                 loadHelper(settings, onChange);
             });
 

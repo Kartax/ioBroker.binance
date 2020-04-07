@@ -9,6 +9,7 @@
   "homepage": "https://github.com/Kartax/ioBroker.binance",
   "license": "MIT",
   "keywords": [
+    "iobroker",
     "binance",
     "crypto",
     "trading",

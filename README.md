@@ -22,7 +22,7 @@ You may create an API Key on binance.com - i suggest to restrict it to "read-onl
 ### 1.0.2
 - added translations
 - additonal timeout options
-- TraVis CI
+- Travis CI
 ### 1.0.1
 - some loggin cleanup
 - adjusted documentation

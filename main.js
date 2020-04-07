@@ -101,7 +101,19 @@ class Binance extends utils.Adapter {
 
         const timestamp = Date.now();
         const queryString = 'timestamp=' + timestamp;
-        const signature = hmacSHA256(queryString, this.config.apiKeySecret);
+
+        let apiKeySecret = this.config.apiKeySecret
+        this.getForeignObject('system.config', (err, obj) => {
+            if (obj && obj.native && obj.native.secret) {
+                //noinspection JSUnresolvedVariable
+                apiKeySecret = this.decrypt(obj.native.secret, this.config.apiKeySecret);
+            } else {
+                //noinspection JSUnresolvedVariable
+                apiKeySecret = this.decrypt('Zgfr56gFe87jJOM', this.config.apiKeySecret);
+            }
+        });
+
+        const signature = hmacSHA256(queryString, apiKeySecret);
 
         this.log.info(ENDPOINT_ACCOUNT + '?' + queryString + '&signature=' + signature);
 
@@ -171,6 +183,15 @@ class Binance extends utils.Adapter {
         }
     }
 
+    // Function to decrypt passwords
+    decrypt(key, value) {
+        let result = '';
+        for (let i = 0; i < value.length; ++i) {
+            result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
+        }
+        this.log.debug('client_secret decrypt ready');
+        return result;
+    }
 }
 
 // @ts-ignore parent is a valid property on module

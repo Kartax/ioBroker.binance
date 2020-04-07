@@ -22,23 +22,17 @@
         var secret;
 
         function encrypt(key, value) {
-            console.log('### encrypt');
-            console.log('### '+value);
             var result = '';
             for(var i = 0; i < value.length; ++i) {
                 result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
             }
-            console.log('### '+result);
             return result;
         }
         function decrypt(key, value) {
-            console.log('### encrypt');
-            console.log('### '+value);
             var result = '';
             for(var i = 0; i < value.length; ++i) {
                 result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
             }
-            console.log('### '+result);
             return result;
         }
 

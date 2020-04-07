@@ -4,8 +4,8 @@
 systemDictionary = {
     'adapter-title': {
         'en': 'Binance API Adapter',
-        'de': 'Binance API adapter',
-        "ru": "Binance API адаптер",
+        'de': 'BinanceDE API adapter',
+        "ru": "BinanceRU API адаптер",
         "pt": "Adaptador API Binance",
         "nl": "Binance API-adapter",
         "fr": "Adaptateur d'API Binance",

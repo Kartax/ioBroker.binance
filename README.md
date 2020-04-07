@@ -19,6 +19,10 @@ You may create an API Key on binance.com - i suggest to restrict it to "read-onl
 ![screenshot-1](screenshot-1.png) ![screenshot-2](screenshot-2.png)
 
 ## Changelog
+### 1.0.2
+- added translations
+- additonal timeout options
+- TraVis CI
 ### 1.0.1
 - some loggin cleanup
 - adjusted documentation
@@ -30,7 +34,7 @@ You may create an API Key on binance.com - i suggest to restrict it to "read-onl
 ## License
 MIT License
 
-Copyright (c) 2020 Kartax <kartax@cuntz.org>
+Copyright (c) 2020 Kartax
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

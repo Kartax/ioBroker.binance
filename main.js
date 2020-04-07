@@ -109,7 +109,7 @@ class Binance extends utils.Adapter {
                 apiKeySecret = this.decrypt(obj.native.secret, this.config.apiKeySecret);
             } else {
                 //noinspection JSUnresolvedVariable
-                apiKeySecret = this.decrypt('Zgfr56gFe87jJOM', this.config.apiKeySecret);
+                apiKeySecret = this.decrypt('Raxu82gIe87jJOZ', this.config.apiKeySecret);
             }
         });
 

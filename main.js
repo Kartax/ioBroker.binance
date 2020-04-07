@@ -104,12 +104,17 @@ class Binance extends utils.Adapter {
 
         let apiKeySecret = this.config.apiKeySecret
         this.getForeignObject('system.config', (err, obj) => {
+            this.log.info("ABC");
+            this.log.info(err);
+            this.log.info(obj);
             if (obj && obj.native && obj.native.secret) {
+                this.log.info('A');
                 //noinspection JSUnresolvedVariable
-                apiKeySecret = this.decrypt(obj.native.secret, this.config.apiKeySecret);
+                apiKeySecret = this.decrypt(obj.native.secret, apiKeySecret);
             } else {
+                this.log.info('B');
                 //noinspection JSUnresolvedVariable
-                apiKeySecret = this.decrypt('Raxu82gIe87jJOZ', this.config.apiKeySecret);
+                apiKeySecret = this.decrypt('Raxu82gIe87jJOZ', apiKeySecret);
             }
         });
 

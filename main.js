@@ -113,6 +113,9 @@ class Binance extends utils.Adapter {
             }
         });
 
+        this.log.info('### '+apiKeySecret)
+
+
         const signature = hmacSHA256(queryString, apiKeySecret);
 
         this.log.info(ENDPOINT_ACCOUNT + '?' + queryString + '&signature=' + signature);

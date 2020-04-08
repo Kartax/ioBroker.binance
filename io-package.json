@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "binance",
-        "version": "1.0.3",
+        "version": "1.0.4",
         "news": {
+            "1.0.4": {
+                "en": "Npmjs repackage"
+            },
             "1.0.3": {
                 "en": "Encrypted storage of apiKeySecret"
             },

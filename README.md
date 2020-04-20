@@ -12,7 +12,7 @@
 
 
 ## Introduction
-Adapter to communicate with the crypt trading platform binance
+Adapter to communicate with the crypto trading platform binance
 
 The adapter pulls prices of currencies in the configured update interval.
 If you configure an API Key and the corresponding secret, it will pull account balances as well.

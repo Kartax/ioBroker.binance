@@ -21,6 +21,8 @@ You may create an API Key on binance.com - i suggest to restrict it to "read-onl
 ![screenshot-1](screenshot-1.png) ![screenshot-2](screenshot-2.png)
 
 ## Changelog
+### 1.0.5
+- fixed interval handle
 ### 1.0.4
 - npmjs repackage
 ### 1.0.3

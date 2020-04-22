@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "binance",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "news": {
+            "1.0.5": {
+                "en": "Fixed interval handle"
+            },
             "1.0.4": {
                 "en": "Npmjs repackage"
             },

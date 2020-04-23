@@ -66,7 +66,9 @@ class Binance extends utils.Adapter {
 
                         if (response.statusCode == 200) {
                             this.log.info('received 24hr data for ' + symbol);
-                            for (const key of Object.keys(content)) {
+                            this.log.info(content);
+                            this.log.info(JSON.parse(content));
+                            for (const key of Object.keys(JSON.parse(content))) {
                                 this.log.info('price.' + symbol + '.' + key);
 
                                 this.setObjectNotExists('price.' + symbol + '.' + key, {

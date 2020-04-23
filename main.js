@@ -38,9 +38,9 @@ class Binance extends utils.Adapter {
      * The main update method
      */
     main() {
-        this.request24hr();
         //this.requestPrices();
-        //if (this.config.apiKey && this.config.apiKeySecret) this.requestAccount();
+        if (this.config.symbols) this.request24hr();
+        if (this.config.apiKey && this.config.apiKeySecret) this.requestAccount();
     }
 
     /**
@@ -49,9 +49,7 @@ class Binance extends utils.Adapter {
     request24hr() {
         this.log.info('request24hr');
 
-        const symbols = ['BTCUSDT','BNBUSDT'];
-
-        for(const symbol of symbols) {
+        for(const symbol of this.config.symbols.split(',')) {
 
             request(
                 {
@@ -66,8 +64,6 @@ class Binance extends utils.Adapter {
                         if (response.statusCode == 200) {
                             this.log.info('received 24hr data for ' + symbol);
                             for (const key of Object.keys(content)) {
-                                this.log.info('24hr.' + symbol + '.' + key);
-
                                 this.setObjectNotExists('24hr.' + symbol + '.' + key, {
                                     type: 'state',
                                     common: {

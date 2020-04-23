@@ -55,19 +55,15 @@ class Binance extends utils.Adapter {
 
             request(
                 {
-                    url: ENDPOINT_PRICE,
+                    url: ENDPOINT_24HR_PREFIX + symbol,
                     json: true,
                     time: true,
                     timeout: 5000
                 },
                 (error, response, content) => {
                     if (!error) {
-                        this.log.info('response.statusCode: ' + response.statusCode);
-
                         if (response.statusCode == 200) {
                             this.log.info('received 24hr data for ' + symbol);
-                            this.log.info(content);
-                            this.log.info(JSON.parse(content));
                             for (const key of Object.keys(JSON.parse(content))) {
                                 this.log.info('price.' + symbol + '.' + key);
 

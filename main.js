@@ -53,7 +53,7 @@ class Binance extends utils.Adapter {
 
             request(
                 {
-                    url: ENDPOINT_24HR_PREFIX + symbol,
+                    url: ENDPOINT_24HR_PREFIX + symbol.trim(),
                     json: true,
                     time: true,
                     timeout: 5000

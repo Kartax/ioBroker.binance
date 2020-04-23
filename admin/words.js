@@ -38,6 +38,9 @@ systemDictionary = {
         "pl": "Interwał aktualizacji",
         "zh-cn": "更新间隔"
     },
+    'symbols': {
+        "en": "Comma separated list of symbols (currency pairs supported by binance like BTCUSDT)"
+    },
     'apiKey': {
         "en": "API Key",
         "de": "API Schlüssel",

@@ -54,8 +54,10 @@ class Binance extends utils.Adapter {
         for(const symbol of symbols) {
             const responseObject = this.genericRequest(ENDPOINT_24HR_PREFIX + symbol, {});
             if (responseObject) {
-                this.log.debug('received 24hr data for ' + symbol);
+                this.log.info('received 24hr data for ' + symbol);
                 for (const key of Object.keys(responseObject)) {
+                    this.log.info('price.' + symbol + '.' + key);
+
                     this.setObjectNotExists('price.' + symbol + '.' + key, {
                         type: 'state',
                         common: {
@@ -148,6 +150,8 @@ class Binance extends utils.Adapter {
      * @returns responseContent
      */
     genericRequest(requestUrl, headers){
+        this.log.info('request: '+requestUrl);
+        this.log.info('headers: '+headers);
         let responseContent = null;
 
         request(

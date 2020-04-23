@@ -66,9 +66,9 @@ class Binance extends utils.Adapter {
                         if (response.statusCode == 200) {
                             this.log.info('received 24hr data for ' + symbol);
                             for (const key of Object.keys(content)) {
-                                this.log.info('price.' + symbol + '.' + key);
+                                this.log.info('24hr.' + symbol + '.' + key);
 
-                                this.setObjectNotExists('price.' + symbol + '.' + key, {
+                                this.setObjectNotExists('24hr.' + symbol + '.' + key, {
                                     type: 'state',
                                     common: {
                                         name: symbol + '.' + key,
@@ -79,7 +79,7 @@ class Binance extends utils.Adapter {
                                     },
                                     native: {}
                                 });
-                                this.setState('price.' + symbol + '.' + key, content[key]);
+                                this.setState('24hr.' + symbol + '.' + key, content[key]);
                             }
 
                         } else if (response.statusCode == 418 || response.statusCode == 429) {

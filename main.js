@@ -38,7 +38,7 @@ class Binance extends utils.Adapter {
      * The main update method
      */
     main() {
-        //this.requestPrices();
+        this.requestPrices();
         if (this.config.symbols) this.request24hr();
         if (this.config.apiKey && this.config.apiKeySecret) this.requestAccount();
     }
@@ -59,7 +59,6 @@ class Binance extends utils.Adapter {
                     timeout: 5000
                 },
                 (error, response, content) => {
-                    this.log.info(content);
                     if (!error) {
                         if (response.statusCode == 200) {
                             this.log.info('received 24hr data for ' + symbol);

@@ -31,8 +31,7 @@
             "de": "Binance"
         },
         "desc": {
-            "en": "Adapter to communicate with the crypto trading platform binance",
-            "de": "Adapter zur Kommunikation mit der Krypto-Handelsplattform binance"
+            "en": "Adapter to communicate with the crypto trading platform binance"
         },
         "authors": [
             "Kartax <kartax@cuntz.org>"

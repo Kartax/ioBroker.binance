@@ -39,7 +39,16 @@ systemDictionary = {
         "zh-cn": "更新间隔"
     },
     'symbols': {
-        "en": "Comma separated list of symbols (currency pairs supported by binance like BTCUSDT)"
+        "en": "Comma separated list of symbols (currency pairs supported by binance like BTCUSDT)",
+        "de": "Durch Kommas getrennte Liste von Symbolen (von Binance unterstützte Währungspaare wie z.B. BTCUSDT)",
+        "ru": "Разделенный запятыми список символов (валютные пары, поддерживаемые бинансом, например BTCUSDT)",
+        "pt": "Lista de símbolos separados por vírgula (pares de moedas suportados por binance como BTCUSDT)",
+        "nl": "Door komma's gescheiden lijst met symbolen (valutaparen ondersteund door binance zoals BTCUSDT)",
+        "fr": "Liste de symboles séparés par des virgules (paires de devises prises en charge par binance comme BTCUSDT)",
+        "it": "Elenco di simboli separato da virgole (coppie di valute supportate da binance come BTCUSDT)",
+        "es": "Lista de símbolos separados por comas (pares de divisas compatibles con binance como BTCUSDT)",
+        "pl": "Lista symboli oddzielona przecinkami (pary walut obsługiwane przez binancję, np. BTCUSDT)",
+        "zh-cn": "逗号分隔的符号列表（BTCUSDT等币安支持的货币对）"
     },
     'apiKey': {
         "en": "API Key",

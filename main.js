@@ -38,8 +38,8 @@ class Binance extends utils.Adapter {
      * The main update method
      */
     main() {
-        this.requestPrices();
         if (this.config.symbols) this.request24hr();
+        if (this.config.allPrices) this.requestPrices();
         if (this.config.apiKey && this.config.apiKeySecret) this.requestAccount();
     }
 

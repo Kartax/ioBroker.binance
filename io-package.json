@@ -69,6 +69,7 @@
     },
     "native": {
         "interval": 60000,
+        "fetchAllPrices": true,
         "symbols": "BTCUSDT,IOTAUSDT",
         "apiKey": "",
         "apiKeySecret": ""

@@ -39,16 +39,16 @@ systemDictionary = {
         "zh-cn": "更新间隔"
     },
     'allPrices': {
-        "en": "Fetch ALL prices (Price only, but of every currency pair)",
-        "de": "ALLE Preise laden (nur den Preis, dafür aber von jedem Währungspaar)",
-        "ru": "Получить ВСЕ цены (только цены, но для каждой валютной пары)",
-        "pt": "Buscar TODOS os preços (apenas preço, mas em cada par de moedas)",
-        "nl": "ALLE prijzen ophalen (alleen prijs, maar van elk valutapaar)",
-        "fr": "Récupérez TOUS les prix (prix uniquement, mais pour chaque paire de devises)",
-        "it": "Ottieni TUTTI i prezzi (solo prezzo, ma di ogni coppia di valute)",
-        "es": "Obtenga TODOS los precios (solo precio, pero de cada par de divisas)",
-        "pl": "Pobierz WSZYSTKIE ceny (tylko cena, ale dla każdej pary walut)",
-        "zh-cn": "获取所有价格（仅价格，但每个货币对价格）"
+        "en": "Load ALL prices<br/>This will load prices of every currency pair - but only the price",
+        "de": "ALLE Preise laden<br/>Dies lädt die Preise für jedes Währungspaar - aber nur den Preis)",
+        "ru": "Загрузить ВСЕ цены<br/>Это загрузит цены каждой валютной пары - но только цену)",
+        "pt": "Carregar todos os preços<br/>isso carregará os preços de cada par de moedas - mas apenas o preço)",
+        "nl": "Laad ALLE prijzen<br/>dit laadt de prijzen van elk valutapaar - maar alleen de prijs)",
+        "fr": "Charger TOUS les prix<br/>Cela chargera les prix de chaque paire de devises - mais uniquement le prix)",
+        "it": "Carica TUTTI i prezzi<br/>Questo caricherà i prezzi di ogni coppia di valute, ma solo il prezzo)",
+        "es": "Cargar TODOS los precios<br/>Esto cargará los precios de cada par de divisas, pero solo el precio)",
+        "pl": "Załaduj WSZYSTKIE ceny <br/>spowoduje to załadowanie cen każdej pary walut - ale tylko ceny)",
+        "zh-cn": "加载所有价格<br/>这将加载每个货币对的价格-但仅加载价格"
     },
     'symbols': {
         "en": "Comma separated list of symbols (currency pairs supported by binance like BTCUSDT)",

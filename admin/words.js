@@ -38,6 +38,18 @@ systemDictionary = {
         "pl": "Interwał aktualizacji",
         "zh-cn": "更新间隔"
     },
+    'allPrices': {
+        "en": "Fetch ALL prices (Price only, but of every currency pair)",
+        "de": "ALLE Preise laden (nur den Preis, dafür aber von jedem Währungspaar)",
+        "ru": "Получить ВСЕ цены (только цены, но для каждой валютной пары)",
+        "pt": "Buscar TODOS os preços (apenas preço, mas em cada par de moedas)",
+        "nl": "ALLE prijzen ophalen (alleen prijs, maar van elk valutapaar)",
+        "fr": "Récupérez TOUS les prix (prix uniquement, mais pour chaque paire de devises)",
+        "it": "Ottieni TUTTI i prezzi (solo prezzo, ma di ogni coppia di valute)",
+        "es": "Obtenga TODOS los precios (solo precio, pero de cada par de divisas)",
+        "pl": "Pobierz WSZYSTKIE ceny (tylko cena, ale dla każdej pary walut)",
+        "zh-cn": "获取所有价格（仅价格，但每个货币对价格）"
+    },
     'symbols': {
         "en": "Comma separated list of symbols (currency pairs supported by binance like BTCUSDT)",
         "de": "Durch Kommas getrennte Liste von Symbolen (von Binance unterstützte Währungspaare wie z.B. BTCUSDT)",

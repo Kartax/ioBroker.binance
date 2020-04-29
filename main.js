@@ -179,7 +179,6 @@ class Binance extends utils.Adapter {
                 },
                 (error, response, content) => {
                     if (!error) {
-                        this.log.info('response.statusCode: ' + response.statusCode);
 
                         if (response.statusCode == 200) {
                             this.log.info('got account response');

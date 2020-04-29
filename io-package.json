@@ -4,7 +4,7 @@
         "version": "1.1.0",
         "news": {
             "1.1.0": {
-                "en": "Added 24hr data for selected symbols"
+                "en": "Added 24hr data for configurable set of currency pairs."
             },
             "1.0.5": {
                 "en": "Fixed interval handle"
@@ -70,7 +70,7 @@
     "native": {
         "interval": 60000,
         "allPrices": "no",
-        "symbols": "BTCUSDT,IOTAUSDT",
+        "symbols": "BTCUSDT,ETHUSDT,IOTAUSDT",
         "apiKey": "",
         "apiKeySecret": ""
     },
